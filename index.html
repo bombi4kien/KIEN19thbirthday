@@ -439,6 +439,7 @@
       font-weight: bold;
       color: var(--text-brown-dark);
       cursor: pointer;
+      transition: background 0.2s ease;
     }
 
     .sub-btn.active {
@@ -605,15 +606,16 @@
 
         <!-- Tab 1: Frame Photobooth -->
         <div id="tab-frame-content">
+          <!-- Các nút con: Gift, Online, Special Gift (Tự đổi Coming Soon khi chưa đến ngày) -->
           <div class="part2-subtabs">
-            <button class="sub-btn active" id="btn-sub-frame1" onclick="switchFrameImg('frame1', this)">01.12 - 18.12</button>
-            <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)">Online</button>
-            <button class="sub-btn" id="btn-sub-frame2" onclick="switchFrameImg('frame2', this)">19.12 - 31.12</button>
+            <button class="sub-btn active" id="btn-sub-frame1" onclick="switchFrameImg('frame1', this)">Gift</button>
+            <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)">Coming Soon</button>
+            <button class="sub-btn" id="btn-sub-frame2" onclick="switchFrameImg('frame2', this)">Coming Soon</button>
           </div>
 
           <div id="frame-display-area">
             <div class="img-display-part2" id="frame-img-box">
-              <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo" loading="lazy" decoding="async">
+              <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=GIFT+FRAME" alt="Frame Photo" loading="lazy" decoding="async">
             </div>
             <div class="locked-card" id="frame-locked-msg" style="display: none;">
               <i class="fa-solid fa-lock"></i>
@@ -719,11 +721,11 @@
   </div>
 
   <script>
-    // CÁC MỐC THỜI GIAN MỞ KHÓA MỚI (Năm 2026)
+    // CÁC MỐC THỜI GIAN MỞ KHÓA (Năm 2026)
     const DATE_PART1  = new Date("2026-11-28T00:00:00").getTime(); // Mở web + Part 1
-    const DATE_FRAME1 = new Date("2026-11-29T00:00:00").getTime(); // Mục 01.12 - 18.12 (Mở 29.11)
-    const DATE_FRAME3 = new Date("2026-11-30T00:00:00").getTime(); // Mục Online (Mở 30.11)
-    const DATE_FRAME2 = new Date("2026-12-17T00:00:00").getTime(); // Mục 19.12 - 31.12 (Mở 17.12)
+    const DATE_FRAME1 = new Date("2026-11-29T00:00:00").getTime(); // Gift (Mở 29.11)
+    const DATE_FRAME3 = new Date("2026-11-30T00:00:00").getTime(); // Online (Mở 30.11)
+    const DATE_FRAME2 = new Date("2026-12-17T00:00:00").getTime(); // Special Gift (Mở 17.12)
     const DATE_LED    = new Date("2026-12-18T00:00:00").getTime(); // Check-in LED (Mở 18.12)
     const DATE_PART3  = new Date("2026-12-05T00:00:00").getTime(); // Part 3 (Mở 05.12)
     const DATE_PART4  = new Date("2026-12-12T00:00:00").getTime(); // Part 4 (Mở 12.12)
@@ -758,9 +760,25 @@
       document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
     }
 
-    // KIỂM TRA KHÓA CHO CÁC MỤC CON
+    // KIỂM TRA KHÓA & ĐỔI TÊN NÚT TAB PART 02
     function checkSubLocks() {
       const now = new Date().getTime();
+
+      // Cập nhật tên nút Mục Online (frame3)
+      const btnFrame3 = document.getElementById("btn-sub-frame3");
+      if (now >= DATE_FRAME3) {
+        btnFrame3.innerHTML = "Online";
+      } else {
+        btnFrame3.innerHTML = '<i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon';
+      }
+
+      // Cập nhật tên nút Mục Special Gift (frame2)
+      const btnFrame2 = document.getElementById("btn-sub-frame2");
+      if (now >= DATE_FRAME2) {
+        btnFrame2.innerHTML = "Special Gift";
+      } else {
+        btnFrame2.innerHTML = '<i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon';
+      }
 
       // PART 03 (Mở 05.12)
       if (now >= DATE_PART3) {
@@ -793,9 +811,9 @@
     }
 
     const frameImages = {
-      frame1: "https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME",
-      frame2: "https://placehold.co/800x500/f3e5d3/8b5a36?text=19.12+-+31.12+FRAME",
-      frame3: "https://placehold.co/800x500/f3e5d3/8b5a36?text=ONLINE+FRAME"
+      frame1: "https://placehold.co/800x500/f3e5d3/8b5a36?text=GIFT+FRAME",
+      frame3: "https://placehold.co/800x500/f3e5d3/8b5a36?text=ONLINE+FRAME",
+      frame2: "https://placehold.co/800x500/f3e5d3/8b5a36?text=SPECIAL+GIFT+FRAME"
     };
 
     function renderFrameDisplay(key) {
