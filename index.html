@@ -15,7 +15,6 @@
 
   <style>
     :root {
-      /* Tông nền be ấm và chữ nâu */
       --bg-beige: #faf6f0;
       --card-bg: #fffcf8;
       --card-border: #ebdccb;
@@ -61,7 +60,6 @@
       position: relative;
     }
 
-    /* KIEN 19th phát sáng và lấp lánh nhẹ tông nâu */
     .nav-logo {
       font-size: 1.35rem;
       font-weight: 900;
@@ -83,7 +81,7 @@
       }
     }
 
-    /* Menu Dropdown container */
+    /* Menu Dropdown */
     .menu-container {
       position: relative;
     }
@@ -149,13 +147,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Ảnh bìa giữ nguyên 100% tỉ lệ gốc, không bị cắt xén */
+    /* Ảnh bìa giữ nguyên 100% tỉ lệ gốc */
     .cover-wrapper {
       width: 100%;
       height: auto;
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
       border: 2px solid var(--card-border);
       box-shadow: 0 8px 24px rgba(139, 90, 54, 0.1);
       background: #eee3d5;
@@ -167,7 +165,57 @@
       display: block;
     }
 
-    /* TIÊU ĐỀ CHÍNH HAPPY KIEN'S 19TH B-DAY */
+    /* Đồng hồ đếm ngược */
+    .countdown-section {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 24px;
+      padding: 30px 20px;
+      text-align: center;
+      margin-bottom: 35px;
+      box-shadow: 0 6px 20px rgba(139, 90, 54, 0.08);
+    }
+
+    .countdown-title {
+      font-family: 'DynaPuff', cursive;
+      font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+      color: #ffffff;
+      margin-bottom: 18px;
+      text-shadow: 0 0 6px var(--glow-brown-bright), 0 0 12px var(--glow-brown-bright);
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .timer-card {
+      background: #ffffff;
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      min-width: 70px;
+      padding: 12px 10px;
+      box-shadow: 0 4px 10px rgba(139, 90, 54, 0.06);
+    }
+
+    .timer-num {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--text-brown-dark);
+      line-height: 1.1;
+    }
+
+    .timer-label {
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: var(--text-brown);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Tiêu đề chính */
     .bday-headline {
       text-align: center;
       font-family: 'DynaPuff', 'Sniglet', cursive;
@@ -214,7 +262,26 @@
       scroll-margin-top: 25px;
     }
 
-    /* Header tiêu đề có icon hạt dẻ */
+    /* Khung thông báo khóa */
+    .locked-card {
+      background: rgba(243, 229, 211, 0.45);
+      border: 1.5px dashed var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+      color: var(--text-brown-dark);
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+
+    .locked-card i {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      display: block;
+      color: var(--text-brown);
+    }
+
     .part-header {
       display: flex;
       align-items: center;
@@ -222,7 +289,6 @@
       margin-bottom: 22px;
     }
 
-    /* Icon hạt dẻ */
     .part-icon-hatde {
       width: 58px;
       height: 58px;
@@ -231,7 +297,6 @@
       filter: drop-shadow(0 3px 6px rgba(139, 90, 54, 0.3));
     }
 
-    /* TIÊU ĐỀ PHÔNG CHỮ BONG BÓNG */
     .part-bubble-title {
       font-family: 'DynaPuff', 'Sniglet', cursive;
       font-size: clamp(1.35rem, 4vw, 1.8rem);
@@ -260,7 +325,6 @@
       }
     }
 
-    /* Cột bên trái */
     .left-col {
       display: flex;
       flex-direction: column;
@@ -292,7 +356,6 @@
       color: var(--text-brown);
     }
 
-    /* Cột bên phải */
     .right-col {
       display: flex;
       flex-direction: column;
@@ -314,11 +377,7 @@
       text-align: left;
     }
 
-    .btn-action:hover {
-      background: var(--btn-active);
-    }
-
-    .btn-action.active {
+    .btn-action:hover, .btn-action.active {
       background: var(--btn-active);
     }
 
@@ -344,8 +403,8 @@
       font-weight: bold;
     }
 
-    /* PART 4 Layout */
-    .part4-tabs {
+    /* PART 02 Tabs (Secret Stash) */
+    .part2-tabs {
       display: flex;
       gap: 12px;
       margin-bottom: 20px;
@@ -369,7 +428,7 @@
       background: var(--btn-active);
     }
 
-    .part4-subtabs {
+    .part2-subtabs {
       display: flex;
       gap: 10px;
       margin-bottom: 16px;
@@ -391,7 +450,7 @@
       background: var(--btn-active);
     }
 
-    .img-display-part4 {
+    .img-display-part2 {
       width: 100%;
       height: 280px;
       border-radius: 14px;
@@ -402,7 +461,7 @@
       box-shadow: 0 4px 14px rgba(139, 90, 54, 0.08);
     }
 
-    .img-display-part4 img {
+    .img-display-part2 img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -461,12 +520,11 @@
 </head>
 <body>
 
-  <!-- Thanh trên ảnh bìa -->
+  <!-- Thanh menu -->
   <nav class="top-nav">
     <div class="nav-logo">KIEN 19th</div>
     
-    <!-- Nút Menu Dropdown -->
-    <div class="menu-container">
+    <div class="menu-container" id="menu-wrapper" style="display: none;">
       <button class="btn-menu" id="menuBtn" onclick="toggleMenu(event)">
         <i class="fa-solid fa-bars"></i> Menu
       </button>
@@ -485,112 +543,165 @@
       <img src="biasn.png" alt="Ảnh bìa KIEN 19th Birthday Project">
     </div>
 
-    <!-- Tiêu đề chính -->
-    <h1 class="bday-headline">HAPPY KIEN'S 19TH B-DAY</h1>
-
-    <!-- PART 01 -->
-    <div class="part-card" id="part1">
-      <div class="part-header">
-        <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
-        <h2 class="part-bubble-title">PART 01<br>NUTTY SNAPS</h2>
-      </div>
-      <div class="part-layout">
-        <div class="left-col">
-          <div class="img-box">
-            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
-          </div>
-          <div class="img-caption">PHOTOTIME</div>
+    <!-- ĐỒNG HỒ ĐẾM NGƯỢC ĐẾN 29/11/2026 -->
+    <div class="countdown-section" id="countdown-container">
+      <h2 class="countdown-title">COUNTDOWN TO 29.11.2026</h2>
+      <div class="timer-grid">
+        <div class="timer-card">
+          <div class="timer-num" id="days">00</div>
+          <div class="timer-label">Ngày</div>
         </div>
-        <div class="right-col">
-          <button class="btn-action" onclick="toggleInfo('p1-time', this)">Thời gian</button>
-          <div id="p1-time" class="info-result">01.12 - 31.12</div>
-
-          <button class="btn-action" onclick="toggleInfo('p1-loc', this)">Địa điểm</button>
-          <div id="p1-loc" class="info-result">
-            Xem danh sách cửa hàng <a href="https://www.facebook.com/phototimevn/posts/pfbid037ngJAwVqzvoc2usej15HH3q6znbGByk4rweqex21USJZ5LanjyZDmkxg3L7GE4rVl" target="_blank" rel="noopener noreferrer">tại đây</a>
-          </div>
+        <div class="timer-card">
+          <div class="timer-num" id="hours">00</div>
+          <div class="timer-label">Giờ</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-num" id="minutes">00</div>
+          <div class="timer-label">Phút</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-num" id="seconds">00</div>
+          <div class="timer-label">Giây</div>
         </div>
       </div>
     </div>
 
-    <!-- PART 02 -->
-    <div class="part-card" id="part2">
-      <div class="part-header">
-        <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
-        <h2 class="part-bubble-title">PART 02<br>THE ACORN SIGNAL</h2>
-      </div>
-      <div class="part-layout">
-        <div class="left-col">
-          <div class="img-box">
-            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
-          </div>
-          <div class="img-caption">Instagram Ads</div>
-        </div>
-        <div class="right-col">
-          <div style="font-size: 1.1rem; font-weight: bold;">Thời gian: 18.12 - 19.12</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PART 03 -->
-    <div class="part-card" id="part3">
-      <div class="part-header">
-        <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
-        <h2 class="part-bubble-title">PART 03<br>SPOT THE SQUIRREL</h2>
-      </div>
-      <div class="part-layout">
-        <div class="left-col">
-          <div class="img-box">
-            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
-          </div>
-          <div class="img-caption">LED Outdoor</div>
-        </div>
-        <div class="right-col">
-          <button class="btn-action" onclick="toggleInfo('p3-time', this)">Thời gian</button>
-          <div id="p3-time" class="info-result">19.12</div>
-
-          <button class="btn-action" onclick="toggleInfo('p3-loc', this)">Địa điểm</button>
-          <div id="p3-loc" class="info-result">
-            12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PART 4 -->
-    <div class="part-card" id="part4">
-      <div class="part-header">
-        <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
-        <h2 class="part-bubble-title">PART 4<br>SECRET STASH</h2>
-      </div>
+    <!-- KHU VỰC CÁC PART (TỰ MỞ KHI ĐẾN 29.11.2026) -->
+    <div id="all-parts-wrapper" style="display: none;">
       
-      <div class="part4-tabs">
-        <button class="tab-btn active" id="btn-tab-frame" onclick="switchPart4Tab('frame')">Frame Photobooth</button>
-        <button class="tab-btn" id="btn-tab-led" onclick="switchPart4Tab('led')">Check-in LED</button>
+      <h1 class="bday-headline">HAPPY KIEN'S 19TH B-DAY</h1>
+
+      <!-- PART 01: NUTTY SNAPS (Mở từ 29.11.2026) -->
+      <div class="part-card" id="part1">
+        <div class="part-header">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <h2 class="part-bubble-title">PART 01<br>NUTTY SNAPS</h2>
+        </div>
+        <div class="part-layout">
+          <div class="left-col">
+            <div class="img-box">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
+            </div>
+            <div class="img-caption">PHOTOTIME</div>
+          </div>
+          <div class="right-col">
+            <button class="btn-action" onclick="toggleInfo('p1-time', this)">Thời gian</button>
+            <div id="p1-time" class="info-result">01.12 - 31.12</div>
+
+            <button class="btn-action" onclick="toggleInfo('p1-loc', this)">Địa điểm</button>
+            <div id="p1-loc" class="info-result">
+              Xem danh sách cửa hàng <a href="https://www.facebook.com/phototimevn/posts/pfbid037ngJAwVqzvoc2usej15HH3q6znbGByk4rweqex21USJZ5LanjyZDmkxg3L7GE4rVl" target="_blank" rel="noopener noreferrer">tại đây</a>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Tab Frame Photobooth -->
-      <div id="tab-frame-content">
-        <div class="part4-subtabs">
-          <button class="sub-btn active" onclick="switchFrameImg('frame1', this)">01.12 - 18.12</button>
-          <button class="sub-btn" onclick="switchFrameImg('frame2', this)">19.12 - 31.12</button>
-          <button class="sub-btn" onclick="switchFrameImg('frame3', this)">Online</button>
+      <!-- PART 02: SECRET STASH -->
+      <div class="part-card" id="part2">
+        <div class="part-header">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <h2 class="part-bubble-title">PART 02<br>SECRET STASH</h2>
         </div>
-        <div class="img-display-part4">
-          <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+        
+        <div class="part2-tabs">
+          <button class="tab-btn active" id="btn-tab-frame" onclick="switchPart2Tab('frame')">Frame Photobooth</button>
+          <button class="tab-btn" id="btn-tab-led" onclick="switchPart2Tab('led')">Check-in LED</button>
+        </div>
+
+        <!-- Tab 1: Frame Photobooth -->
+        <div id="tab-frame-content">
+          <!-- Đã đổi thứ tự: 01.12-18.12 -> Online -> 19.12-31.12 -->
+          <div class="part2-subtabs">
+            <button class="sub-btn active" id="btn-sub-frame1" onclick="switchFrameImg('frame1', this)">01.12 - 18.12</button>
+            <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)">Online</button>
+            <button class="sub-btn" id="btn-sub-frame2" onclick="switchFrameImg('frame2', this)">19.12 - 31.12</button>
+          </div>
+
+          <div id="frame-display-area">
+            <div class="img-display-part2" id="frame-img-box">
+              <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+            </div>
+            <div class="locked-card" id="frame-locked-msg" style="display: none;">
+              <i class="fa-solid fa-lock"></i>
+              <span id="frame-locked-text"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Check-in LED -->
+        <div id="tab-led-content" style="display: none;">
+          <div class="locked-card" id="led-locked-msg">
+            <i class="fa-solid fa-lock"></i>
+            Sẽ mở vào 19.12
+          </div>
+          <div id="led-unlocked-content" style="display: none;">
+            <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 6px;">19.12</div>
+            <div style="font-size: 1rem; font-weight: bold; margin-bottom: 12px; line-height: 1.4;">
+              12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
+            </div>
+            <div class="img-display-part2">
+              <img src="https://placehold.co/800x500/f3e5d3/8b5a36?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Tab Check-in LED -->
-      <div id="tab-led-content" style="display: none;">
-        <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 6px;">19.12</div>
-        <div style="font-size: 1rem; font-weight: bold; margin-bottom: 12px; line-height: 1.4;">
-          12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
+      <!-- PART 03: THE ACORN SIGNAL (Mở từ 05.12.2026) -->
+      <div class="part-card" id="part3">
+        <div class="part-header">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <h2 class="part-bubble-title">PART 03<br>THE ACORN SIGNAL</h2>
         </div>
-        <div class="img-display-part4">
-          <img src="https://placehold.co/800x500/f3e5d3/8b5a36?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+        
+        <div class="locked-card" id="part3-locked">
+          <i class="fa-solid fa-lock"></i>
+          Sẽ mở vào 05.12
+        </div>
+
+        <div class="part-layout" id="part3-content" style="display: none;">
+          <div class="left-col">
+            <div class="img-box">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+03+PHOTO" alt="The Acorn Signal Photo">
+            </div>
+            <div class="img-caption">Instagram Ads</div>
+          </div>
+          <div class="right-col">
+            <div style="font-size: 1.1rem; font-weight: bold;">Thời gian: 18.12 - 19.12</div>
+          </div>
         </div>
       </div>
+
+      <!-- PART 04: SPOT THE SQUIRREL (Mở từ 12.12.2026) -->
+      <div class="part-card" id="part4">
+        <div class="part-header">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <h2 class="part-bubble-title">PART 04<br>SPOT THE SQUIRREL</h2>
+        </div>
+
+        <div class="locked-card" id="part4-locked">
+          <i class="fa-solid fa-lock"></i>
+          Sẽ mở vào 12.12
+        </div>
+
+        <div class="part-layout" id="part4-content" style="display: none;">
+          <div class="left-col">
+            <div class="img-box">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+04+PHOTO" alt="Spot The Squirrel Photo">
+            </div>
+            <div class="img-caption">LED Outdoor</div>
+          </div>
+          <div class="right-col">
+            <button class="btn-action" onclick="toggleInfo('p4-time', this)">Thời gian</button>
+            <div id="p4-time" class="info-result">19.12</div>
+
+            <button class="btn-action" onclick="toggleInfo('p4-loc', this)">Địa điểm</button>
+            <div id="p4-loc" class="info-result">
+              12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- LIÊN HỆ -->
@@ -614,6 +725,144 @@
   </div>
 
   <script>
+    // CÁC MỐC THỜI GIAN MỞ KHÓA CHUẨN XÁC (Năm 2026)
+    const DATE_PART1  = new Date("2026-11-29T00:00:00").getTime(); // Mở web + Part 1
+    const DATE_FRAME1 = new Date("2026-11-30T00:00:00").getTime(); // Mục 01.12 - 18.12
+    const DATE_FRAME3 = new Date("2026-11-30T00:00:00").getTime(); // Mục Online
+    const DATE_FRAME2 = new Date("2026-12-18T00:00:00").getTime(); // Mục 19.12 - 31.12
+    const DATE_PART3  = new Date("2026-12-05T00:00:00").getTime(); // Part 3
+    const DATE_PART4  = new Date("2026-12-12T00:00:00").getTime(); // Part 4
+    const DATE_LED    = new Date("2026-12-19T00:00:00").getTime(); // Check-in LED
+
+    let currentSelectedFrame = 'frame1';
+
+    // ĐỒNG HỒ ĐẾM NGƯỢC TỚI 29.11.2026
+    function updateMasterCountdown() {
+      const now = new Date().getTime();
+      const diff = DATE_PART1 - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown-container").style.display = "none";
+        document.getElementById("all-parts-wrapper").style.display = "block";
+        document.getElementById("menu-wrapper").style.display = "block";
+        checkSubLocks();
+        return;
+      }
+
+      document.getElementById("countdown-container").style.display = "block";
+      document.getElementById("all-parts-wrapper").style.display = "none";
+      document.getElementById("menu-wrapper").style.display = "none";
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = String(days).padStart(2, '0');
+      document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+      document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    }
+
+    // KIỂM TRA KHÓA CHO CÁC MỤC CON
+    function checkSubLocks() {
+      const now = new Date().getTime();
+
+      // PART 03 (Mở từ 05.12)
+      if (now >= DATE_PART3) {
+        document.getElementById("part3-locked").style.display = "none";
+        document.getElementById("part3-content").style.display = "grid";
+      } else {
+        document.getElementById("part3-locked").style.display = "block";
+        document.getElementById("part3-content").style.display = "none";
+      }
+
+      // PART 04 (Mở từ 12.12)
+      if (now >= DATE_PART4) {
+        document.getElementById("part4-locked").style.display = "none";
+        document.getElementById("part4-content").style.display = "grid";
+      } else {
+        document.getElementById("part4-locked").style.display = "block";
+        document.getElementById("part4-content").style.display = "none";
+      }
+
+      // Check-in LED ở PART 02 (Mở từ 19.12)
+      if (now >= DATE_LED) {
+        document.getElementById("led-locked-msg").style.display = "none";
+        document.getElementById("led-unlocked-content").style.display = "block";
+      } else {
+        document.getElementById("led-locked-msg").style.display = "block";
+        document.getElementById("led-unlocked-content").style.display = "none";
+      }
+
+      // Render tab Frame hiện tại
+      renderFrameDisplay(currentSelectedFrame);
+    }
+
+    const frameImages = {
+      frame1: "https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME",
+      frame2: "https://placehold.co/800x500/f3e5d3/8b5a36?text=19.12+-+31.12+FRAME",
+      frame3: "https://placehold.co/800x500/f3e5d3/8b5a36?text=ONLINE+FRAME"
+    };
+
+    function renderFrameDisplay(key) {
+      const now = new Date().getTime();
+      const imgBox = document.getElementById("frame-img-box");
+      const lockedMsg = document.getElementById("frame-locked-msg");
+      const lockedText = document.getElementById("frame-locked-text");
+
+      let isLocked = false;
+      let text = "";
+
+      if (key === 'frame1' && now < DATE_FRAME1) {
+        isLocked = true;
+        text = "Sẽ mở vào 30.11";
+      } else if (key === 'frame3' && now < DATE_FRAME3) {
+        isLocked = true;
+        text = "Sẽ mở vào 30.11";
+      } else if (key === 'frame2' && now < DATE_FRAME2) {
+        isLocked = true;
+        text = "Sẽ mở vào 18.12";
+      }
+
+      if (isLocked) {
+        imgBox.style.display = "none";
+        lockedMsg.style.display = "block";
+        lockedText.innerText = text;
+      } else {
+        imgBox.style.display = "block";
+        lockedMsg.style.display = "none";
+        document.getElementById("frame-img").src = frameImages[key];
+      }
+    }
+
+    function switchFrameImg(key, btn) {
+      currentSelectedFrame = key;
+      const subBtns = document.querySelectorAll('.part2-subtabs .sub-btn');
+      subBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderFrameDisplay(key);
+    }
+
+    function switchPart2Tab(tab) {
+      const frameContent = document.getElementById('tab-frame-content');
+      const ledContent = document.getElementById('tab-led-content');
+      const btnFrame = document.getElementById('btn-tab-frame');
+      const btnLed = document.getElementById('btn-tab-led');
+
+      if (tab === 'frame') {
+        frameContent.style.display = 'block';
+        ledContent.style.display = 'none';
+        btnFrame.classList.add('active');
+        btnLed.classList.remove('active');
+      } else {
+        frameContent.style.display = 'none';
+        ledContent.style.display = 'block';
+        btnFrame.classList.remove('active');
+        btnLed.classList.add('active');
+      }
+    }
+
     function toggleMenu(e) {
       e.stopPropagation();
       const menu = document.getElementById('menuDropdown');
@@ -639,37 +888,9 @@
       btn.classList.toggle('active');
     }
 
-    function switchPart4Tab(tab) {
-      const frameContent = document.getElementById('tab-frame-content');
-      const ledContent = document.getElementById('tab-led-content');
-      const btnFrame = document.getElementById('btn-tab-frame');
-      const btnLed = document.getElementById('btn-tab-led');
-
-      if (tab === 'frame') {
-        frameContent.style.display = 'block';
-        ledContent.style.display = 'none';
-        btnFrame.classList.add('active');
-        btnLed.classList.remove('active');
-      } else {
-        frameContent.style.display = 'none';
-        ledContent.style.display = 'block';
-        btnFrame.classList.remove('active');
-        btnLed.classList.add('active');
-      }
-    }
-
-    const frameImages = {
-      frame1: "https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME",
-      frame2: "https://placehold.co/800x500/f3e5d3/8b5a36?text=19.12+-+31.12+FRAME",
-      frame3: "https://placehold.co/800x500/f3e5d3/8b5a36?text=ONLINE+FRAME"
-    };
-
-    function switchFrameImg(key, btn) {
-      document.getElementById('frame-img').src = frameImages[key];
-      const subBtns = document.querySelectorAll('.part4-subtabs .sub-btn');
-      subBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
+    // Đếm ngược mỗi giây
+    setInterval(updateMasterCountdown, 1000);
+    updateMasterCountdown();
   </script>
 </body>
 </html>
