@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KIEN 19th Birthday Project</title>
   
-  <!-- Font Google: DynaPuff & Sniglet (Phông bong bóng tròn mập) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@700;800;900&family=Sniglet:wght@800&display=swap" rel="stylesheet">
 
-  <!-- FontAwesome Icons cho phần liên hệ & icon Menu -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
@@ -68,6 +67,7 @@
       text-shadow: 0 0 10px rgba(181, 126, 84, 0.6), 0 0 20px rgba(181, 126, 84, 0.3);
       animation: kienShimmer 3s ease-in-out infinite alternate;
       cursor: default;
+      will-change: transform, text-shadow;
     }
 
     @keyframes kienShimmer {
@@ -99,7 +99,7 @@
       color: var(--text-brown-dark);
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(139, 90, 54, 0.12);
-      transition: all 0.2s ease;
+      transition: background 0.2s ease;
     }
 
     .btn-menu:hover, .btn-menu.active {
@@ -120,7 +120,6 @@
       z-index: 100;
       flex-direction: column;
       gap: 4px;
-      animation: menuFadeIn 0.2s ease-out forwards;
     }
 
     .menu-dropdown.show {
@@ -142,12 +141,7 @@
       background: var(--btn-bg);
     }
 
-    @keyframes menuFadeIn {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Ảnh bìa giữ nguyên 100% tỉ lệ gốc */
+    /* Ảnh bìa */
     .cover-wrapper {
       width: 100%;
       height: auto;
@@ -231,6 +225,7 @@
         0 0 18px rgba(184, 110, 55, 0.9),
         0 0 28px rgba(184, 110, 55, 0.65);
       animation: bdayShimmer 2.5s ease-in-out infinite alternate;
+      will-change: transform, text-shadow;
     }
 
     @keyframes bdayShimmer {
@@ -373,7 +368,7 @@
       color: var(--text-brown-dark);
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
-      transition: all 0.2s ease;
+      transition: background 0.2s ease;
       text-align: left;
     }
 
@@ -403,7 +398,7 @@
       font-weight: bold;
     }
 
-    /* PART 02 Tabs (Secret Stash) */
+    /* PART 02 Tabs */
     .part2-tabs {
       display: flex;
       gap: 12px;
@@ -505,7 +500,7 @@
       font-size: 0.9rem;
       font-weight: bold;
       box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
-      transition: all 0.2s ease;
+      transition: background 0.2s ease;
     }
 
     .social-item:hover {
@@ -520,7 +515,7 @@
 </head>
 <body>
 
-  <!-- Thanh menu -->
+  <!-- Thanh Menu -->
   <nav class="top-nav">
     <div class="nav-logo">KIEN 19th</div>
     
@@ -540,12 +535,12 @@
   <div class="container">
     <!-- Ảnh bìa -->
     <div class="cover-wrapper">
-      <img src="biasn.png" alt="Ảnh bìa KIEN 19th Birthday Project">
+      <img src="biasn.png" alt="Ảnh bìa KIEN 19th Birthday Project" decoding="async">
     </div>
 
-    <!-- ĐỒNG HỒ ĐẾM NGƯỢC ĐẾN 29/11/2026 -->
+    <!-- ĐỒNG HỒ ĐẾM NGƯỢC ĐẾN 28/11/2026 -->
     <div class="countdown-section" id="countdown-container">
-      <h2 class="countdown-title">COUNTDOWN TO 29.11.2026</h2>
+      <h2 class="countdown-title">COUNTDOWN TO 28.11.2026</h2>
       <div class="timer-grid">
         <div class="timer-card">
           <div class="timer-num" id="days">00</div>
@@ -566,21 +561,21 @@
       </div>
     </div>
 
-    <!-- KHU VỰC CÁC PART (TỰ MỞ KHI ĐẾN 29.11.2026) -->
+    <!-- KHU VỰC CÁC PART (MỞ TỪ 28.11.2026) -->
     <div id="all-parts-wrapper" style="display: none;">
       
       <h1 class="bday-headline">HAPPY KIEN'S 19TH B-DAY</h1>
 
-      <!-- PART 01: NUTTY SNAPS (Mở từ 29.11.2026) -->
+      <!-- PART 01: NUTTY SNAPS (Mở từ 28.11.2026) -->
       <div class="part-card" id="part1">
         <div class="part-header">
-          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde" loading="lazy" decoding="async">
           <h2 class="part-bubble-title">PART 01<br>NUTTY SNAPS</h2>
         </div>
         <div class="part-layout">
           <div class="left-col">
             <div class="img-box">
-              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+01+PHOTO" alt="Nutty Snaps Photo" loading="lazy" decoding="async">
             </div>
             <div class="img-caption">PHOTOTIME</div>
           </div>
@@ -599,7 +594,7 @@
       <!-- PART 02: SECRET STASH -->
       <div class="part-card" id="part2">
         <div class="part-header">
-          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde" loading="lazy" decoding="async">
           <h2 class="part-bubble-title">PART 02<br>SECRET STASH</h2>
         </div>
         
@@ -610,7 +605,6 @@
 
         <!-- Tab 1: Frame Photobooth -->
         <div id="tab-frame-content">
-          <!-- Đã đổi thứ tự: 01.12-18.12 -> Online -> 19.12-31.12 -->
           <div class="part2-subtabs">
             <button class="sub-btn active" id="btn-sub-frame1" onclick="switchFrameImg('frame1', this)">01.12 - 18.12</button>
             <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)">Online</button>
@@ -619,7 +613,7 @@
 
           <div id="frame-display-area">
             <div class="img-display-part2" id="frame-img-box">
-              <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+              <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo" loading="lazy" decoding="async">
             </div>
             <div class="locked-card" id="frame-locked-msg" style="display: none;">
               <i class="fa-solid fa-lock"></i>
@@ -628,11 +622,11 @@
           </div>
         </div>
 
-        <!-- Tab 2: Check-in LED -->
+        <!-- Tab 2: Check-in LED (Mở từ 18.12) -->
         <div id="tab-led-content" style="display: none;">
           <div class="locked-card" id="led-locked-msg">
             <i class="fa-solid fa-lock"></i>
-            Sẽ mở vào 19.12
+            Sẽ mở vào 18.12
           </div>
           <div id="led-unlocked-content" style="display: none;">
             <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 6px;">19.12</div>
@@ -640,16 +634,16 @@
               12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
             </div>
             <div class="img-display-part2">
-              <img src="https://placehold.co/800x500/f3e5d3/8b5a36?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+              <img src="https://placehold.co/800x500/f3e5d3/8b5a36?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PART 03: THE ACORN SIGNAL (Mở từ 05.12.2026) -->
+      <!-- PART 03: THE ACORN SIGNAL (Mở từ 05.12) -->
       <div class="part-card" id="part3">
         <div class="part-header">
-          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde" loading="lazy" decoding="async">
           <h2 class="part-bubble-title">PART 03<br>THE ACORN SIGNAL</h2>
         </div>
         
@@ -661,7 +655,7 @@
         <div class="part-layout" id="part3-content" style="display: none;">
           <div class="left-col">
             <div class="img-box">
-              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+03+PHOTO" alt="The Acorn Signal Photo">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+03+PHOTO" alt="The Acorn Signal Photo" loading="lazy" decoding="async">
             </div>
             <div class="img-caption">Instagram Ads</div>
           </div>
@@ -671,10 +665,10 @@
         </div>
       </div>
 
-      <!-- PART 04: SPOT THE SQUIRREL (Mở từ 12.12.2026) -->
+      <!-- PART 04: SPOT THE SQUIRREL (Mở từ 12.12) -->
       <div class="part-card" id="part4">
         <div class="part-header">
-          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde">
+          <img src="hatde.png" alt="icon hạt dẻ" class="part-icon-hatde" loading="lazy" decoding="async">
           <h2 class="part-bubble-title">PART 04<br>SPOT THE SQUIRREL</h2>
         </div>
 
@@ -686,7 +680,7 @@
         <div class="part-layout" id="part4-content" style="display: none;">
           <div class="left-col">
             <div class="img-box">
-              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+04+PHOTO" alt="Spot The Squirrel Photo">
+              <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+04+PHOTO" alt="Spot The Squirrel Photo" loading="lazy" decoding="async">
             </div>
             <div class="img-caption">LED Outdoor</div>
           </div>
@@ -725,18 +719,18 @@
   </div>
 
   <script>
-    // CÁC MỐC THỜI GIAN MỞ KHÓA CHUẨN XÁC (Năm 2026)
-    const DATE_PART1  = new Date("2026-11-29T00:00:00").getTime(); // Mở web + Part 1
-    const DATE_FRAME1 = new Date("2026-11-30T00:00:00").getTime(); // Mục 01.12 - 18.12
-    const DATE_FRAME3 = new Date("2026-11-30T00:00:00").getTime(); // Mục Online
-    const DATE_FRAME2 = new Date("2026-12-18T00:00:00").getTime(); // Mục 19.12 - 31.12
-    const DATE_PART3  = new Date("2026-12-05T00:00:00").getTime(); // Part 3
-    const DATE_PART4  = new Date("2026-12-12T00:00:00").getTime(); // Part 4
-    const DATE_LED    = new Date("2026-12-19T00:00:00").getTime(); // Check-in LED
+    // CÁC MỐC THỜI GIAN MỞ KHÓA MỚI (Năm 2026)
+    const DATE_PART1  = new Date("2026-11-28T00:00:00").getTime(); // Mở web + Part 1
+    const DATE_FRAME1 = new Date("2026-11-29T00:00:00").getTime(); // Mục 01.12 - 18.12 (Mở 29.11)
+    const DATE_FRAME3 = new Date("2026-11-30T00:00:00").getTime(); // Mục Online (Mở 30.11)
+    const DATE_FRAME2 = new Date("2026-12-17T00:00:00").getTime(); // Mục 19.12 - 31.12 (Mở 17.12)
+    const DATE_LED    = new Date("2026-12-18T00:00:00").getTime(); // Check-in LED (Mở 18.12)
+    const DATE_PART3  = new Date("2026-12-05T00:00:00").getTime(); // Part 3 (Mở 05.12)
+    const DATE_PART4  = new Date("2026-12-12T00:00:00").getTime(); // Part 4 (Mở 12.12)
 
     let currentSelectedFrame = 'frame1';
 
-    // ĐỒNG HỒ ĐẾM NGƯỢC TỚI 29.11.2026
+    // ĐỒNG HỒ ĐẾM NGƯỢC TỚI 28.11.2026
     function updateMasterCountdown() {
       const now = new Date().getTime();
       const diff = DATE_PART1 - now;
@@ -768,7 +762,7 @@
     function checkSubLocks() {
       const now = new Date().getTime();
 
-      // PART 03 (Mở từ 05.12)
+      // PART 03 (Mở 05.12)
       if (now >= DATE_PART3) {
         document.getElementById("part3-locked").style.display = "none";
         document.getElementById("part3-content").style.display = "grid";
@@ -777,7 +771,7 @@
         document.getElementById("part3-content").style.display = "none";
       }
 
-      // PART 04 (Mở từ 12.12)
+      // PART 04 (Mở 12.12)
       if (now >= DATE_PART4) {
         document.getElementById("part4-locked").style.display = "none";
         document.getElementById("part4-content").style.display = "grid";
@@ -786,7 +780,7 @@
         document.getElementById("part4-content").style.display = "none";
       }
 
-      // Check-in LED ở PART 02 (Mở từ 19.12)
+      // Check-in LED ở PART 02 (Mở 18.12)
       if (now >= DATE_LED) {
         document.getElementById("led-locked-msg").style.display = "none";
         document.getElementById("led-unlocked-content").style.display = "block";
@@ -795,7 +789,6 @@
         document.getElementById("led-unlocked-content").style.display = "none";
       }
 
-      // Render tab Frame hiện tại
       renderFrameDisplay(currentSelectedFrame);
     }
 
@@ -822,7 +815,7 @@
         text = "Sẽ mở vào 30.11";
       } else if (key === 'frame2' && now < DATE_FRAME2) {
         isLocked = true;
-        text = "Sẽ mở vào 18.12";
+        text = "Sẽ mở vào 17.12";
       }
 
       if (isLocked) {
@@ -888,7 +881,6 @@
       btn.classList.toggle('active');
     }
 
-    // Đếm ngược mỗi giây
     setInterval(updateMasterCountdown, 1000);
     updateMasterCountdown();
   </script>
