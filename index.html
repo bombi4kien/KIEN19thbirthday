@@ -11,33 +11,28 @@
   <style>
     :root {
       --bg-pastel: linear-gradient(180deg, #d8efff 0%, #ebf6ff 50%, #f4faff 100%);
-      --card-bg: rgba(255, 255, 255, 0.65);
-      --card-border: rgba(255, 255, 255, 0.85);
-      --btn-bg: #8dc5f8;
-      --btn-active: #5ea8ee;
-      --border-blue: #2a7db7;
+      --card-bg: rgba(255, 255, 255, 0.7);
+      --card-border: rgba(255, 255, 255, 0.9);
+      --btn-bg: #c1e2fe;
+      --btn-active: #9ecdfa;
+      /* Màu chữ xanh dương hơi đậm */
+      --text-color: #1d5b94;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      /* Phông chữ thường, chuẩn nét, không cách điệu */
       font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
       background: var(--bg-pastel);
       min-height: 100vh;
-      color: #ffffff;
+      color: var(--text-color);
       padding: 24px 16px 60px;
-      /* Viền chữ xanh đậm nét nhẹ */
-      text-shadow: 
-        -1.5px -1.5px 0 var(--border-blue),  
-         1.5px -1.5px 0 var(--border-blue),
-        -1.5px  1.5px 0 var(--border-blue),
-         1.5px  1.5px 0 var(--border-blue),
-         0px 2px 4px rgba(42, 125, 183, 0.4);
+      /* Bỏ hoàn toàn viền chữ */
+      text-shadow: none !important;
     }
 
     .container {
@@ -71,6 +66,7 @@
       font-weight: bold;
       margin-bottom: 25px;
       letter-spacing: 0.5px;
+      color: var(--text-color);
     }
 
     .part-card {
@@ -88,6 +84,7 @@
       font-size: 1.35rem;
       font-weight: bold;
       margin-bottom: 20px;
+      color: var(--text-color);
     }
 
     .part-layout {
@@ -117,7 +114,7 @@
       overflow: hidden;
       border: 2.5px solid #ffffff;
       background: #cce7ff;
-      box-shadow: 0 4px 14px rgba(42, 125, 183, 0.2);
+      box-shadow: 0 4px 14px rgba(29, 91, 148, 0.15);
     }
 
     .img-box img {
@@ -132,6 +129,7 @@
       font-size: 1.05rem;
       font-weight: bold;
       text-align: center;
+      color: var(--text-color);
     }
 
     /* Cột bên phải */
@@ -139,6 +137,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      color: var(--text-color);
     }
 
     .btn-action {
@@ -148,10 +147,9 @@
       padding: 12px 18px;
       font-size: 0.95rem;
       font-weight: bold;
-      color: #ffffff;
+      color: var(--text-color);
       cursor: pointer;
-      text-shadow: inherit;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.3);
+      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
       transition: all 0.2s ease;
       text-align: left;
     }
@@ -166,13 +164,14 @@
 
     .info-result {
       display: none;
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 255, 255, 0.8);
       border: 1.5px solid #ffffff;
       border-radius: 10px;
       padding: 12px 16px;
       font-size: 0.95rem;
       font-weight: bold;
       line-height: 1.4;
+      color: var(--text-color);
     }
 
     .info-result.show {
@@ -180,10 +179,9 @@
     }
 
     .info-result a {
-      color: #ffffff;
+      color: var(--text-color);
       text-decoration: underline;
       font-weight: bold;
-      text-shadow: inherit;
     }
 
     /* PART 4 Layout */
@@ -201,10 +199,9 @@
       border-radius: 12px;
       font-size: 1rem;
       font-weight: bold;
-      color: #ffffff;
+      color: var(--text-color);
       cursor: pointer;
-      text-shadow: inherit;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.3);
+      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
       text-align: center;
     }
 
@@ -221,14 +218,13 @@
 
     .sub-btn {
       padding: 8px 16px;
-      background: rgba(141, 197, 248, 0.85);
+      background: var(--btn-bg);
       border: 1.5px solid #ffffff;
       border-radius: 8px;
       font-size: 0.9rem;
       font-weight: bold;
-      color: #ffffff;
+      color: var(--text-color);
       cursor: pointer;
-      text-shadow: inherit;
     }
 
     .sub-btn.active {
@@ -243,7 +239,7 @@
       border: 2.5px solid #ffffff;
       background: #cce7ff;
       margin-top: 10px;
-      box-shadow: 0 4px 14px rgba(42, 125, 183, 0.2);
+      box-shadow: 0 4px 14px rgba(29, 91, 148, 0.15);
     }
 
     .img-display-part4 img {
@@ -269,6 +265,7 @@
       font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 18px;
+      color: var(--text-color);
     }
 
     .social-links {
@@ -286,11 +283,10 @@
       background: var(--btn-bg);
       border: 2px solid #ffffff;
       border-radius: 999px;
-      color: #ffffff;
+      color: var(--text-color);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: bold;
-      text-shadow: inherit;
       box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
     }
 
@@ -300,6 +296,7 @@
 
     .social-item i {
       font-size: 1.1rem;
+      color: var(--text-color);
     }
   </style>
 </head>
@@ -308,7 +305,7 @@
   <div class="container">
     <!-- Ảnh bìa -->
     <div class="cover-wrapper">
-      <img src="https://placehold.co/1200x500/bde0fe/ffffff?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
+      <img src="https://placehold.co/1200x500/bde0fe/1d5b94?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
     </div>
 
     <h1 class="section-headline">DANH SÁCH CÁC DỰ ÁN</h1>
@@ -319,7 +316,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
+            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
           </div>
           <div class="img-caption">PHOTOTIME</div>
         </div>
@@ -341,7 +338,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
+            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
           </div>
           <div class="img-caption">Instagram Ads</div>
         </div>
@@ -357,7 +354,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
+            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
           </div>
           <div class="img-caption">LED Outdoor</div>
         </div>
@@ -390,7 +387,7 @@
           <button class="sub-btn" onclick="switchFrameImg('frame3', this)">Online</button>
         </div>
         <div class="img-display-part4">
-          <img id="frame-img" src="https://placehold.co/800x500/bde0fe/ffffff?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+          <img id="frame-img" src="https://placehold.co/800x500/bde0fe/1d5b94?text=01.12+-+18.12+FRAME" alt="Frame Photo">
         </div>
       </div>
 
@@ -401,7 +398,7 @@
           12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
         </div>
         <div class="img-display-part4">
-          <img src="https://placehold.co/800x500/bde0fe/ffffff?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+          <img src="https://placehold.co/800x500/bde0fe/1d5b94?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
         </div>
       </div>
     </div>
@@ -453,9 +450,9 @@
     }
 
     const frameImages = {
-      frame1: "https://placehold.co/800x500/bde0fe/ffffff?text=01.12+-+18.12+FRAME",
-      frame2: "https://placehold.co/800x500/bde0fe/ffffff?text=19.12+-+31.12+FRAME",
-      frame3: "https://placehold.co/800x500/bde0fe/ffffff?text=ONLINE+FRAME"
+      frame1: "https://placehold.co/800x500/bde0fe/1d5b94?text=01.12+-+18.12+FRAME",
+      frame2: "https://placehold.co/800x500/bde0fe/1d5b94?text=19.12+-+31.12+FRAME",
+      frame3: "https://placehold.co/800x500/bde0fe/1d5b94?text=ONLINE+FRAME"
     };
 
     function switchFrameImg(key, btn) {
