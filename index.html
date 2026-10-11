@@ -149,10 +149,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Ảnh bìa */
+    /* Ảnh bìa giữ nguyên 100% tỉ lệ gốc, không bị cắt xén */
     .cover-wrapper {
       width: 100%;
-      height: 340px;
+      height: auto;
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 35px;
@@ -163,8 +163,7 @@
 
     .cover-wrapper img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
