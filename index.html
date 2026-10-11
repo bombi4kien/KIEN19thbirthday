@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIEN 19th Birthday Project</title>
+  
+  <!-- Font chữ tiếng Việt chuẩn bo tròn mềm mại -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons cho phần liên hệ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-pastel: linear-gradient(180deg, #d8efff 0%, #ebf6ff 50%, #f4faff 100%);
+      --card-bg: rgba(255, 255, 255, 0.65);
+      --card-border: rgba(255, 255, 255, 0.85);
+      --btn-bg: #8dc5f8;
+      --btn-active: #5ea8ee;
+      --btn-border: #4d9de9;
+      --border-blue: #2a7db7; /* Viền xanh đậm nét hơn */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      background: var(--bg-pastel);
+      min-height: 100vh;
+      color: #ffffff;
+      padding: 24px 16px 60px;
+      /* Hiệu ứng chữ trắng viền xanh đậm hơn một chút sắc nét trên toàn trang */
+      text-shadow: 
+        -1.5px -1.5px 0 var(--border-blue),  
+         1.5px -1.5px 0 var(--border-blue),
+        -1.5px  1.5px 0 var(--border-blue),
+         1.5px  1.5px 0 var(--border-blue),
+         0px 2px 4px rgba(42, 125, 183, 0.4);
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* Ảnh bìa */
+    .cover-wrapper {
+      width: 100%;
+      height: 340px;
+      border-radius: 24px;
+      overflow: hidden;
+      margin-bottom: 35px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 8px 24px rgba(141, 197, 248, 0.35);
+      background: #c7e5fc;
+    }
+
+    .cover-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Danh sách dự án */
+    .section-headline {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    .part-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid var(--card-border);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 20px rgba(154, 204, 247, 0.25);
+    }
+
+    .part-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .part-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    @media (min-width: 600px) {
+      .part-layout {
+        grid-template-columns: 240px 1fr;
+      }
+    }
+
+    /* Cột bên trái: Ảnh + Chữ dưới ảnh */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .img-box {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2.5px solid #ffffff;
+      background: #cce7ff;
+      box-shadow: 0 4px 14px rgba(42, 125, 183, 0.2);
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-caption {
+      margin-top: 10px;
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    /* Cột bên phải: Nút & Nội dung */
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-action {
+      background: var(--btn-bg);
+      border: 2px solid #ffffff;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ffffff;
+      cursor: pointer;
+      text-shadow: inherit;
+      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.3);
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .btn-action:hover {
+      background: var(--btn-active);
+      transform: translateY(-2px);
+    }
+
+    .btn-action.active {
+      background: var(--btn-active);
+      border-color: #ffffff;
+    }
+
+    .info-result {
+      display: none;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1.5px solid #ffffff;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      animation: fadeIn 0.25s ease-in-out forwards;
+    }
+
+    .info-result.show {
+      display: block;
+    }
+
+    .info-result a {
+      color: #ffffff;
+      text-decoration: underline;
+      font-weight: 800;
+      text-shadow: inherit;
+    }
+
+    /* PART 4 Layout */
+    .part4-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      background: var(--btn-bg);
+      border: 2px solid #ffffff;
+      border-radius: 16px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #ffffff;
+      cursor: pointer;
+      text-shadow: inherit;
+      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.3);
+      transition: 0.2s;
+      text-align: center;
+    }
+
+    .tab-btn.active {
+      background: var(--btn-active);
+    }
+
+    .part4-subtabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .sub-btn {
+      padding: 8px 16px;
+      background: rgba(141, 197, 248, 0.85);
+      border: 1.5px solid #ffffff;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #ffffff;
+      cursor: pointer;
+      text-shadow: inherit;
+    }
+
+    .sub-btn.active {
+      background: var(--btn-active);
+    }
+
+    .img-display-part4 {
+      width: 100%;
+      height: 280px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2.5px solid #ffffff;
+      background: #cce7ff;
+      margin-top: 10px;
+      box-shadow: 0 4px 14px rgba(42, 125, 183, 0.2);
+    }
+
+    .img-display-part4 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Liên hệ */
+    .contact-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 2px solid var(--card-border);
+      border-radius: 24px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(154, 204, 247, 0.25);
+    }
+
+    .contact-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--btn-bg);
+      border: 2px solid #ffffff;
+      border-radius: 999px;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-shadow: inherit;
+      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .social-item:hover {
+      background: var(--btn-active);
+      transform: translateY(-2px);
+    }
+
+    .social-item i {
+      font-size: 1.15rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Ảnh bìa -->
+    <div class="cover-wrapper">
+      <img src="https://placehold.co/1200x500/bde0fe/ffffff?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
+    </div>
+
+    <h1 class="section-headline">DANH SÁCH CÁC DỰ ÁN</h1>
+
+    <!-- PART 01 -->
+    <div class="part-card">
+      <h2 class="part-title">PART 01: NUTTY SNAPS</h2>
+      <div class="part-layout">
+        <div class="left-col">
+          <div class="img-box">
+            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
+          </div>
+          <div class="img-caption">PHOTOTIME</div>
+        </div>
+        <div class="right-col">
+          <button class="btn-action" onclick="toggleInfo('p1-time', this)">Thời gian</button>
+          <div id="p1-time" class="info-result">01.12 - 31.12</div>
+
+          <button class="btn-action" onclick="toggleInfo('p1-loc', this)">Địa điểm</button>
+          <div id="p1-loc" class="info-result">
+            Xem danh sách cửa hàng <a href="https://www.facebook.com/phototimevn/posts/pfbid037ngJAwVqzvoc2usej15HH3q6znbGByk4rweqex21USJZ5LanjyZDmkxg3L7GE4rVl" target="_blank" rel="noopener noreferrer">tại đây</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 02 -->
+    <div class="part-card">
+      <h2 class="part-title">PART 02: THE ACORN SIGNAL</h2>
+      <div class="part-layout">
+        <div class="left-col">
+          <div class="img-box">
+            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
+          </div>
+          <div class="img-caption">Instagram Ads</div>
+        </div>
+        <div class="right-col">
+          <div style="font-size: 1.15rem; font-weight: 800;">Thời gian: 18.12 - 19.12</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 03 -->
+    <div class="part-card">
+      <h2 class="part-title">PART 03: SPOT THE SQUIRREL</h2>
+      <div class="part-layout">
+        <div class="left-col">
+          <div class="img-box">
+            <img src="https://placehold.co/500x500/bde0fe/ffffff?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
+          </div>
+          <div class="img-caption">LED Outdoor</div>
+        </div>
+        <div class="right-col">
+          <button class="btn-action" onclick="toggleInfo('p3-time', this)">Thời gian</button>
+          <div id="p3-time" class="info-result">19.12</div>
+
+          <button class="btn-action" onclick="toggleInfo('p3-loc', this)">Địa điểm</button>
+          <div id="p3-loc" class="info-result">
+            12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 4 -->
+    <div class="part-card">
+      <h2 class="part-title">PART 4: SECRET STASH</h2>
+      
+      <!-- 2 Nút chính: Frame Photobooth & Check-in LED -->
+      <div class="part4-tabs">
+        <button class="tab-btn active" id="btn-tab-frame" onclick="switchPart4Tab('frame')">Frame Photobooth</button>
+        <button class="tab-btn" id="btn-tab-led" onclick="switchPart4Tab('led')">Check-in LED</button>
+      </div>
+
+      <!-- Nội dung 1: Frame Photobooth -->
+      <div id="tab-frame-content">
+        <div class="part4-subtabs">
+          <button class="sub-btn active" onclick="switchFrameImg('frame1', this)">01.12 - 18.12</button>
+          <button class="sub-btn" onclick="switchFrameImg('frame2', this)">19.12 - 31.12</button>
+          <button class="sub-btn" onclick="switchFrameImg('frame3', this)">Online</button>
+        </div>
+        <div class="img-display-part4">
+          <img id="frame-img" src="https://placehold.co/800x500/bde0fe/ffffff?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+        </div>
+      </div>
+
+      <!-- Nội dung 2: Check-in LED -->
+      <div id="tab-led-content" style="display: none;">
+        <div style="font-size: 1.15rem; font-weight: 800; margin-bottom: 6px;">19.12</div>
+        <div style="font-size: 1.05rem; font-weight: 800; margin-bottom: 12px;">
+          12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
+        </div>
+        <div class="img-display-part4">
+          <img src="https://placehold.co/800x500/bde0fe/ffffff?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+        </div>
+      </div>
+    </div>
+
+    <!-- LIÊN HỆ -->
+    <div class="contact-card">
+      <h3 class="contact-title">LIÊN HỆ:</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com/bombiforKIEN" target="_blank" rel="noopener noreferrer" class="social-item">
+          <i class="fa-brands fa-facebook"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/bombi4kien/" target="_blank" rel="noopener noreferrer" class="social-item">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.threads.com/@bombi4kien" target="_blank" rel="noopener noreferrer" class="social-item">
+          <i class="fa-brands fa-threads"></i> Threads
+        </a>
+        <a href="mailto:bombi3bu@gmail.com" class="social-item">
+          <i class="fa-solid fa-envelope"></i> bombi3bu@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Bật/tắt hiển thị thời gian & địa điểm ở Part 1 & 3
+    function toggleInfo(id, btn) {
+      const el = document.getElementById(id);
+      el.classList.toggle('show');
+      btn.classList.toggle('active');
+    }
+
+    // Chuyển đổi giữa 2 tab lớn của PART 4
+    function switchPart4Tab(tab) {
+      const frameContent = document.getElementById('tab-frame-content');
+      const ledContent = document.getElementById('tab-led-content');
+      const btnFrame = document.getElementById('btn-tab-frame');
+      const btnLed = document.getElementById('btn-tab-led');
+
+      if (tab === 'frame') {
+        frameContent.style.display = 'block';
+        ledContent.style.display = 'none';
+        btnFrame.classList.add('active');
+        btnLed.classList.remove('active');
+      } else {
+        frameContent.style.display = 'none';
+        ledContent.style.display = 'block';
+        btnFrame.classList.remove('active');
+        btnLed.classList.add('active');
+      }
+    }
+
+    // Danh sách ảnh mẫu cho 3 nút của Frame Photobooth (thay link ảnh thật vào đây sau)
+    const frameImages = {
+      frame1: "https://placehold.co/800x500/bde0fe/ffffff?text=01.12+-+18.12+FRAME",
+      frame2: "https://placehold.co/800x500/bde0fe/ffffff?text=19.12+-+31.12+FRAME",
+      frame3: "https://placehold.co/800x500/bde0fe/ffffff?text=ONLINE+FRAME"
+    };
+
+    function switchFrameImg(key, btn) {
+      document.getElementById('frame-img').src = frameImages[key];
+      const subBtns = document.querySelectorAll('.part4-subtabs .sub-btn');
+      subBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
