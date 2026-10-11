@@ -168,15 +168,41 @@
       display: block;
     }
 
-    /* Tiêu đề danh sách dự án */
-    .section-headline {
+    /* TIÊU ĐỀ CHÍNH HAPPY KIEN'S 19TH B-DAY */
+    .bday-headline {
       text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-      margin-bottom: 25px;
-      letter-spacing: 0.5px;
-      color: var(--text-brown-dark);
-      text-shadow: 0 0 10px rgba(181, 126, 84, 0.3);
+      font-family: 'DynaPuff', 'Sniglet', cursive;
+      font-size: clamp(1.6rem, 5vw, 2.3rem);
+      font-weight: 900;
+      margin-bottom: 28px;
+      letter-spacing: 1px;
+      color: #ffffff;
+      line-height: 1.3;
+      text-shadow:
+        0 0 6px var(--glow-brown-bright),
+        0 0 12px var(--glow-brown-bright),
+        0 0 18px rgba(184, 110, 55, 0.9),
+        0 0 28px rgba(184, 110, 55, 0.65);
+      animation: bdayShimmer 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes bdayShimmer {
+      0% {
+        text-shadow:
+          0 0 4px var(--glow-brown-bright),
+          0 0 10px var(--glow-brown-bright),
+          0 0 16px rgba(184, 110, 55, 0.8),
+          0 0 22px rgba(184, 110, 55, 0.5);
+        transform: scale(0.99);
+      }
+      100% {
+        text-shadow:
+          0 0 8px var(--glow-brown-bright),
+          0 0 16px var(--glow-brown-bright),
+          0 0 24px rgba(184, 110, 55, 1),
+          0 0 35px rgba(220, 140, 70, 0.85);
+        transform: scale(1.02);
+      }
     }
 
     .part-card {
@@ -197,7 +223,7 @@
       margin-bottom: 22px;
     }
 
-    /* Icon hạt dẻ to rõ hơn */
+    /* Icon hạt dẻ */
     .part-icon-hatde {
       width: 58px;
       height: 58px;
@@ -457,10 +483,11 @@
   <div class="container">
     <!-- Ảnh bìa -->
     <div class="cover-wrapper">
-      <img src="https://placehold.co/1200x500/f3e5d3/8b5a36?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
+      <img src="biasn.png" alt="Ảnh bìa KIEN 19th Birthday Project">
     </div>
 
-    <h1 class="section-headline">DANH SÁCH CÁC DỰ ÁN</h1>
+    <!-- Tiêu đề chính -->
+    <h1 class="bday-headline">HAPPY KIEN'S 19TH B-DAY</h1>
 
     <!-- PART 01 -->
     <div class="part-card" id="part1">
