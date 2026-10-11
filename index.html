@@ -15,7 +15,6 @@
       --card-border: rgba(255, 255, 255, 0.9);
       --btn-bg: #c1e2fe;
       --btn-active: #9ecdfa;
-      /* Màu chữ xanh dương hơi đậm */
       --text-color: #1d5b94;
     }
 
@@ -26,18 +25,62 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: var(--bg-pastel);
       min-height: 100vh;
       color: var(--text-color);
-      padding: 24px 16px 60px;
-      /* Bỏ hoàn toàn viền chữ */
+      padding: 0 16px 60px;
       text-shadow: none !important;
     }
 
     .container {
       max-width: 820px;
       margin: 0 auto;
+    }
+
+    /* Thanh điều hướng Menu phía trên ảnh bìa */
+    .top-nav {
+      max-width: 820px;
+      margin: 0 auto 20px;
+      padding: 16px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-logo {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--text-color);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.88rem;
+      font-weight: bold;
+      padding: 6px 12px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+
+    .nav-menu a:hover {
+      background: var(--btn-active);
     }
 
     /* Ảnh bìa */
@@ -78,6 +121,7 @@
       padding: 24px;
       margin-bottom: 28px;
       box-shadow: 0 8px 20px rgba(154, 204, 247, 0.25);
+      scroll-margin-top: 30px;
     }
 
     .part-title {
@@ -302,6 +346,17 @@
 </head>
 <body>
 
+  <!-- Menu trên ảnh bìa -->
+  <nav class="top-nav">
+    <div class="nav-logo">KIEN's 19th B-Day</div>
+    <div class="nav-menu">
+      <a href="#part1">PART 01</a>
+      <a href="#part2">PART 02</a>
+      <a href="#part3">PART 03</a>
+      <a href="#part4">PART 04</a>
+    </div>
+  </nav>
+
   <div class="container">
     <!-- Ảnh bìa -->
     <div class="cover-wrapper">
@@ -311,7 +366,7 @@
     <h1 class="section-headline">DANH SÁCH CÁC DỰ ÁN</h1>
 
     <!-- PART 01 -->
-    <div class="part-card">
+    <div class="part-card" id="part1">
       <h2 class="part-title">PART 01: NUTTY SNAPS</h2>
       <div class="part-layout">
         <div class="left-col">
@@ -333,7 +388,7 @@
     </div>
 
     <!-- PART 02 -->
-    <div class="part-card">
+    <div class="part-card" id="part2">
       <h2 class="part-title">PART 02: THE ACORN SIGNAL</h2>
       <div class="part-layout">
         <div class="left-col">
@@ -349,7 +404,7 @@
     </div>
 
     <!-- PART 03 -->
-    <div class="part-card">
+    <div class="part-card" id="part3">
       <h2 class="part-title">PART 03: SPOT THE SQUIRREL</h2>
       <div class="part-layout">
         <div class="left-col">
@@ -371,7 +426,7 @@
     </div>
 
     <!-- PART 4 -->
-    <div class="part-card">
+    <div class="part-card" id="part4">
       <h2 class="part-title">PART 4: SECRET STASH</h2>
       
       <div class="part4-tabs">
