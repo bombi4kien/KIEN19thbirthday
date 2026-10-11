@@ -416,6 +416,7 @@
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
       text-align: center;
+      transition: background 0.2s ease;
     }
 
     .tab-btn.active {
@@ -514,14 +515,14 @@
 </head>
 <body>
 
-  <!-- BỘ ĐIỀU KHIỂN GIẢ LẬP TRỰC QUAN (Xóa thẻ này khi đưa vào sử dụng thực tế) -->
+  <!-- BỘ ĐIỀU KHIỂN GIẢ LẬP TRỰC QUAN (Xóa thẻ này khi chạy web thực tế) -->
   <aside class="preview-toolbar">
     <label for="time-mode"><i class="fa-solid fa-clock-rotate-left"></i> Chế độ xem trước ngày:</label>
     <select id="time-mode" onchange="changeSimTime(this.value)">
       <option value="REAL">⏱️ Thời gian thực tế của máy tính</option>
-      <option value="2026-11-20T00:00:00">1. Trước 22/11/2026 (Đếm ngược tới 22/11)</option>
+      <option value="2026-11-20T00:00:00">1. Trước 22/11/2026 (Chỉ có đồng hồ đếm ngược tới 22/11)</option>
       <option value="2026-11-22T00:00:00">2. Ngày 22/11/2026 (Mở tên 4 Part - Nội dung khóa - Đếm tới 28/11)</option>
-      <option value="2026-11-28T00:00:00">3. Ngày 28/11/2026 (Mở Part 1 - Part 2 hiện nút Gift)</option>
+      <option value="2026-11-28T00:00:00">3. Ngày 28/11/2026 (Mở Part 1 - Part 2 hiện Gift & Coming Soon)</option>
       <option value="2026-11-29T00:00:00">4. Ngày 29/11/2026 (Mở ảnh mục Gift Part 2)</option>
       <option value="2026-11-30T00:00:00">5. Ngày 30/11/2026 (Mở nút & ảnh Online Part 2)</option>
       <option value="2026-12-05T00:00:00">6. Ngày 05/12/2026 (Mở Part 3)</option>
@@ -626,15 +627,15 @@
         <div id="part2-main-content">
           <div class="part2-tabs">
             <button class="tab-btn active" id="btn-tab-frame" onclick="switchPart2Tab('frame')">Frame Photobooth</button>
-            <button class="tab-btn" id="btn-tab-led" onclick="switchPart2Tab('led')">Check-in LED</button>
+            <button class="tab-btn" id="btn-tab-led" onclick="switchPart2Tab('led')"><i class="fa-solid fa-lock" style="font-size:0.85rem; margin-right:4px;"></i> Coming Soon</button>
           </div>
 
           <!-- Tab 1: Frame Photobooth -->
           <div id="tab-frame-content">
             <div class="part2-subtabs">
               <button class="sub-btn active" id="btn-sub-frame1" onclick="switchFrameImg('frame1', this)">Gift</button>
-              <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)">Coming Soon</button>
-              <button class="sub-btn" id="btn-sub-frame2" onclick="switchFrameImg('frame2', this)">Coming Soon</button>
+              <button class="sub-btn" id="btn-sub-frame3" onclick="switchFrameImg('frame3', this)"><i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon</button>
+              <button class="sub-btn" id="btn-sub-frame2" onclick="switchFrameImg('frame2', this)"><i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon</button>
             </div>
 
             <div id="frame-display-area">
@@ -835,7 +836,19 @@
     }
 
     function checkSubLocks(now) {
-      // Nút Online ở Part 2
+      // 1. Nút tab Check-in LED ở Part 2
+      const btnTabLed = document.getElementById("btn-tab-led");
+      if (now >= DATE_LED) {
+        if (btnTabLed) btnTabLed.innerHTML = "Check-in LED";
+        document.getElementById("led-locked-msg").style.display = "none";
+        document.getElementById("led-unlocked-content").style.display = "block";
+      } else {
+        if (btnTabLed) btnTabLed.innerHTML = '<i class="fa-solid fa-lock" style="font-size:0.85rem; margin-right:4px;"></i> Coming Soon';
+        document.getElementById("led-locked-msg").style.display = "block";
+        document.getElementById("led-unlocked-content").style.display = "none";
+      }
+
+      // 2. Nút Online ở Part 2
       const btnFrame3 = document.getElementById("btn-sub-frame3");
       if (now >= DATE_FRAME3) {
         btnFrame3.innerHTML = "Online";
@@ -843,7 +856,7 @@
         btnFrame3.innerHTML = '<i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon';
       }
 
-      // Nút Special Gift ở Part 2
+      // 3. Nút Special Gift ở Part 2
       const btnFrame2 = document.getElementById("btn-sub-frame2");
       if (now >= DATE_FRAME2) {
         btnFrame2.innerHTML = "Special Gift";
@@ -851,7 +864,7 @@
         btnFrame2.innerHTML = '<i class="fa-solid fa-lock" style="font-size:0.8rem; margin-right:4px;"></i> Coming Soon';
       }
 
-      // Part 3
+      // 4. Part 3
       if (now >= DATE_PART3) {
         document.getElementById("part3-locked").style.display = "none";
         document.getElementById("part3-content").style.display = "grid";
@@ -860,22 +873,13 @@
         document.getElementById("part3-content").style.display = "none";
       }
 
-      // Part 4
+      // 5. Part 4
       if (now >= DATE_PART4) {
         document.getElementById("part4-locked").style.display = "none";
         document.getElementById("part4-content").style.display = "grid";
       } else {
         document.getElementById("part4-locked").style.display = "block";
         document.getElementById("part4-content").style.display = "none";
-      }
-
-      // Check-in LED ở Part 2
-      if (now >= DATE_LED) {
-        document.getElementById("led-locked-msg").style.display = "none";
-        document.getElementById("led-unlocked-content").style.display = "block";
-      } else {
-        document.getElementById("led-locked-msg").style.display = "block";
-        document.getElementById("led-unlocked-content").style.display = "none";
       }
 
       renderFrameDisplay(currentSelectedFrame, now);
