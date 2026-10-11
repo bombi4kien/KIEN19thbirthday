@@ -10,13 +10,15 @@
 
   <style>
     :root {
-      --bg-pastel: linear-gradient(180deg, #d8efff 0%, #ebf6ff 50%, #f4faff 100%);
-      --card-bg: rgba(255, 255, 255, 0.7);
-      --card-border: rgba(255, 255, 255, 0.9);
-      --btn-bg: #c1e2fe;
-      --btn-active: #9ecdfa;
-      --text-color: #1d5b94;
-      --glow-blue: rgba(77, 163, 243, 0.65);
+      /* Tông nền be ấm và chữ nâu theo mẫu */
+      --bg-beige: #faf6f0;
+      --card-bg: #fffcf8;
+      --card-border: #ebdccb;
+      --btn-bg: #f3e5d3;
+      --btn-active: #e4cbb0;
+      --text-brown: #8b5a36;
+      --text-brown-dark: #623a1e;
+      --glow-brown: rgba(181, 126, 84, 0.45);
     }
 
     * {
@@ -31,10 +33,11 @@
     }
 
     body {
-      background: var(--bg-pastel);
+      background-color: var(--bg-beige);
       min-height: 100vh;
-      color: var(--text-color);
+      color: var(--text-brown);
       padding: 0 16px 60px;
+      text-shadow: none !important;
     }
 
     .container {
@@ -53,24 +56,24 @@
       position: relative;
     }
 
-    /* KIEN 19th phát sáng và lấp lánh nhẹ */
+    /* KIEN 19th phát sáng và lấp lánh nhẹ tông nâu */
     .nav-logo {
       font-size: 1.35rem;
       font-weight: 900;
-      color: #1a568d;
+      color: var(--text-brown-dark);
       letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(100, 185, 255, 0.8), 0 0 20px rgba(100, 185, 255, 0.4);
+      text-shadow: 0 0 10px rgba(181, 126, 84, 0.6), 0 0 20px rgba(181, 126, 84, 0.3);
       animation: kienShimmer 3s ease-in-out infinite alternate;
       cursor: default;
     }
 
     @keyframes kienShimmer {
       0% {
-        text-shadow: 0 0 6px rgba(100, 185, 255, 0.6), 0 0 14px rgba(77, 163, 243, 0.3);
+        text-shadow: 0 0 6px rgba(181, 126, 84, 0.4), 0 0 14px rgba(181, 126, 84, 0.2);
         transform: scale(1);
       }
       100% {
-        text-shadow: 0 0 14px rgba(100, 185, 255, 0.95), 0 0 26px rgba(42, 125, 183, 0.6);
+        text-shadow: 0 0 14px rgba(181, 126, 84, 0.8), 0 0 24px rgba(139, 90, 54, 0.4);
         transform: scale(1.02);
       }
     }
@@ -85,14 +88,14 @@
       align-items: center;
       gap: 8px;
       background: var(--btn-bg);
-      border: 2px solid #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 999px;
       padding: 8px 18px;
       font-size: 0.95rem;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
+      box-shadow: 0 4px 12px rgba(139, 90, 54, 0.12);
       transition: all 0.2s ease;
     }
 
@@ -105,14 +108,12 @@
       position: absolute;
       right: 0;
       top: calc(100% + 8px);
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 2px solid #ffffff;
+      background: #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 16px;
       padding: 8px;
       min-width: 175px;
-      box-shadow: 0 8px 24px rgba(42, 125, 183, 0.25);
+      box-shadow: 0 8px 24px rgba(139, 90, 54, 0.15);
       z-index: 100;
       flex-direction: column;
       gap: 4px;
@@ -125,7 +126,7 @@
 
     .menu-dropdown a {
       text-decoration: none;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       font-size: 0.92rem;
       font-weight: bold;
       padding: 10px 14px;
@@ -150,9 +151,9 @@
       border-radius: 20px;
       overflow: hidden;
       margin-bottom: 35px;
-      border: 3px solid #ffffff;
-      box-shadow: 0 8px 24px rgba(141, 197, 248, 0.35);
-      background: #c7e5fc;
+      border: 2px solid var(--card-border);
+      box-shadow: 0 8px 24px rgba(139, 90, 54, 0.1);
+      background: #eee3d5;
     }
 
     .cover-wrapper img {
@@ -169,29 +170,27 @@
       font-weight: bold;
       margin-bottom: 25px;
       letter-spacing: 0.5px;
-      color: var(--text-color);
-      text-shadow: 0 0 10px rgba(141, 197, 248, 0.5);
+      color: var(--text-brown-dark);
+      text-shadow: 0 0 10px rgba(181, 126, 84, 0.3);
     }
 
     .part-card {
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 2px solid var(--card-border);
+      border: 1.5px solid var(--card-border);
       border-radius: 20px;
       padding: 24px;
       margin-bottom: 28px;
-      box-shadow: 0 8px 20px rgba(154, 204, 247, 0.25);
+      box-shadow: 0 6px 18px rgba(139, 90, 54, 0.08);
       scroll-margin-top: 25px;
     }
 
-    /* Tiêu đề từng Part phát sáng */
+    /* Tiêu đề từng Part phát sáng nhẹ */
     .part-title {
       font-size: 1.35rem;
       font-weight: bold;
       margin-bottom: 20px;
-      color: #175287;
-      text-shadow: 0 0 8px rgba(100, 185, 255, 0.75), 0 0 16px rgba(100, 185, 255, 0.4);
+      color: var(--text-brown-dark);
+      text-shadow: 0 0 8px rgba(181, 126, 84, 0.45);
     }
 
     .part-layout {
@@ -219,9 +218,9 @@
       height: 220px;
       border-radius: 14px;
       overflow: hidden;
-      border: 2.5px solid #ffffff;
-      background: #cce7ff;
-      box-shadow: 0 4px 14px rgba(29, 91, 148, 0.15);
+      border: 1.5px solid var(--card-border);
+      background: #f4eae0;
+      box-shadow: 0 4px 14px rgba(139, 90, 54, 0.08);
     }
 
     .img-box img {
@@ -236,7 +235,7 @@
       font-size: 1.05rem;
       font-weight: bold;
       text-align: center;
-      color: var(--text-color);
+      color: var(--text-brown);
     }
 
     /* Cột bên phải */
@@ -244,19 +243,19 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      color: var(--text-color);
+      color: var(--text-brown);
     }
 
     .btn-action {
       background: var(--btn-bg);
-      border: 2px solid #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 10px;
       padding: 12px 18px;
       font-size: 0.95rem;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
+      box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
       transition: all 0.2s ease;
       text-align: left;
     }
@@ -271,14 +270,14 @@
 
     .info-result {
       display: none;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1.5px solid #ffffff;
+      background: #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 10px;
       padding: 12px 16px;
       font-size: 0.95rem;
       font-weight: bold;
       line-height: 1.4;
-      color: var(--text-color);
+      color: var(--text-brown);
     }
 
     .info-result.show {
@@ -286,7 +285,7 @@
     }
 
     .info-result a {
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       text-decoration: underline;
       font-weight: bold;
     }
@@ -302,13 +301,13 @@
       flex: 1;
       padding: 12px;
       background: var(--btn-bg);
-      border: 2px solid #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 12px;
       font-size: 1rem;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
+      box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
       text-align: center;
     }
 
@@ -326,11 +325,11 @@
     .sub-btn {
       padding: 8px 16px;
       background: var(--btn-bg);
-      border: 1.5px solid #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 8px;
       font-size: 0.9rem;
       font-weight: bold;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       cursor: pointer;
     }
 
@@ -343,10 +342,10 @@
       height: 280px;
       border-radius: 14px;
       overflow: hidden;
-      border: 2.5px solid #ffffff;
-      background: #cce7ff;
+      border: 1.5px solid var(--card-border);
+      background: #f4eae0;
       margin-top: 10px;
-      box-shadow: 0 4px 14px rgba(29, 91, 148, 0.15);
+      box-shadow: 0 4px 14px rgba(139, 90, 54, 0.08);
     }
 
     .img-display-part4 img {
@@ -359,20 +358,18 @@
     /* Liên hệ */
     .contact-card {
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 2px solid var(--card-border);
+      border: 1.5px solid var(--card-border);
       border-radius: 20px;
       padding: 24px;
       text-align: center;
-      box-shadow: 0 8px 20px rgba(154, 204, 247, 0.25);
+      box-shadow: 0 6px 18px rgba(139, 90, 54, 0.08);
     }
 
     .contact-title {
       font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 18px;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
     }
 
     .social-links {
@@ -388,13 +385,14 @@
       gap: 8px;
       padding: 10px 18px;
       background: var(--btn-bg);
-      border: 2px solid #ffffff;
+      border: 1.5px solid var(--card-border);
       border-radius: 999px;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: bold;
-      box-shadow: 0 4px 12px rgba(100, 168, 233, 0.25);
+      box-shadow: 0 4px 12px rgba(139, 90, 54, 0.08);
+      transition: all 0.2s ease;
     }
 
     .social-item:hover {
@@ -403,7 +401,7 @@
 
     .social-item i {
       font-size: 1.1rem;
-      color: var(--text-color);
+      color: var(--text-brown-dark);
     }
   </style>
 </head>
@@ -413,7 +411,7 @@
   <nav class="top-nav">
     <div class="nav-logo">KIEN 19th</div>
     
-    <!-- Nút Menu Dropdown giống phong cách Kien Support -->
+    <!-- Nút Menu Dropdown -->
     <div class="menu-container">
       <button class="btn-menu" id="menuBtn" onclick="toggleMenu(event)">
         <i class="fa-solid fa-bars"></i> Menu
@@ -430,7 +428,7 @@
   <div class="container">
     <!-- Ảnh bìa -->
     <div class="cover-wrapper">
-      <img src="https://placehold.co/1200x500/bde0fe/1d5b94?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
+      <img src="https://placehold.co/1200x500/f3e5d3/8b5a36?text=ANH+BIA+KIEN+PROJECT" alt="Ảnh bìa Project Sinh nhật 19 tuổi">
     </div>
 
     <h1 class="section-headline">DANH SÁCH CÁC DỰ ÁN</h1>
@@ -441,7 +439,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
+            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+01+PHOTO" alt="Nutty Snaps Photo">
           </div>
           <div class="img-caption">PHOTOTIME</div>
         </div>
@@ -463,7 +461,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
+            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+02+PHOTO" alt="The Acorn Signal Photo">
           </div>
           <div class="img-caption">Instagram Ads</div>
         </div>
@@ -479,7 +477,7 @@
       <div class="part-layout">
         <div class="left-col">
           <div class="img-box">
-            <img src="https://placehold.co/500x500/bde0fe/1d5b94?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
+            <img src="https://placehold.co/500x500/f3e5d3/8b5a36?text=PART+03+PHOTO" alt="Spot The Squirrel Photo">
           </div>
           <div class="img-caption">LED Outdoor</div>
         </div>
@@ -512,7 +510,7 @@
           <button class="sub-btn" onclick="switchFrameImg('frame3', this)">Online</button>
         </div>
         <div class="img-display-part4">
-          <img id="frame-img" src="https://placehold.co/800x500/bde0fe/1d5b94?text=01.12+-+18.12+FRAME" alt="Frame Photo">
+          <img id="frame-img" src="https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME" alt="Frame Photo">
         </div>
       </div>
 
@@ -523,7 +521,7 @@
           12bis, PĐB Nguyễn Huệ, phường Sài Gòn, Thành phố Hồ Chí Minh
         </div>
         <div class="img-display-part4">
-          <img src="https://placehold.co/800x500/bde0fe/1d5b94?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
+          <img src="https://placehold.co/800x500/f3e5d3/8b5a36?text=CHECK-IN+LED+PHOTO" alt="Check-in LED Photo">
         </div>
       </div>
     </div>
@@ -549,7 +547,6 @@
   </div>
 
   <script>
-    // Logic mở/đóng Menu Dropdown
     function toggleMenu(e) {
       e.stopPropagation();
       const menu = document.getElementById('menuDropdown');
@@ -563,21 +560,18 @@
       document.getElementById('menuBtn').classList.remove('active');
     }
 
-    // Bấm ra ngoài màn hình thì tự đóng Menu
     window.addEventListener('click', function(e) {
       if (!e.target.closest('.menu-container')) {
         closeMenu();
       }
     });
 
-    // Bật/tắt hiển thị thời gian & địa điểm ở Part 1 & 3
     function toggleInfo(id, btn) {
       const el = document.getElementById(id);
       el.classList.toggle('show');
       btn.classList.toggle('active');
     }
 
-    // Chuyển tab trong PART 4
     function switchPart4Tab(tab) {
       const frameContent = document.getElementById('tab-frame-content');
       const ledContent = document.getElementById('tab-led-content');
@@ -598,9 +592,9 @@
     }
 
     const frameImages = {
-      frame1: "https://placehold.co/800x500/bde0fe/1d5b94?text=01.12+-+18.12+FRAME",
-      frame2: "https://placehold.co/800x500/bde0fe/1d5b94?text=19.12+-+31.12+FRAME",
-      frame3: "https://placehold.co/800x500/bde0fe/1d5b94?text=ONLINE+FRAME"
+      frame1: "https://placehold.co/800x500/f3e5d3/8b5a36?text=01.12+-+18.12+FRAME",
+      frame2: "https://placehold.co/800x500/f3e5d3/8b5a36?text=19.12+-+31.12+FRAME",
+      frame3: "https://placehold.co/800x500/f3e5d3/8b5a36?text=ONLINE+FRAME"
     };
 
     function switchFrameImg(key, btn) {
