@@ -481,6 +481,40 @@
       font-size: 1.1rem;
       color: var(--text-brown-dark);
     }
+        /* HIỆU ỨNG HẠT DẺ RƠI */
+    .acorn-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none; /* Không cản trở click chuột hay chạm màn hình */
+      overflow: hidden;
+      z-index: 9998;
+    }
+
+    .falling-acorn {
+      position: absolute;
+      top: -60px;
+      user-select: none;
+      pointer-events: none;
+      animation: acornFall linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes acornFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.9;
+      }
+      50% {
+        transform: translateY(55vh) rotate(180deg) translateX(25px);
+      }
+      100% {
+        transform: translateY(115vh) rotate(360deg) translateX(-25px);
+        opacity: 0.2;
+      }
+    }
   </style>
 </head>
 <body>
@@ -917,6 +951,38 @@
 
     setInterval(updateMasterCountdown, 1000);
     updateMasterCountdown();
+        // TẠO HẠT DẺ RƠI TỰ ĐỘNG TỪ FILE hatde.png
+    (function createAcornRain() {
+      const container = document.createElement('div');
+      container.className = 'acorn-container';
+      document.body.appendChild(container);
+
+      const ACORN_COUNT = 14; // Số lượng hạt rơi cùng lúc (12-16 hạt là vừa đẹp, mượt máy)
+
+      for (let i = 0; i < ACORN_COUNT; i++) {
+        const acorn = document.createElement('img');
+        acorn.src = 'hatde.png';
+        acorn.className = 'falling-acorn';
+        
+        // Ngẫu nhiên kích thước (từ 20px đến 38px)
+        const size = Math.floor(Math.random() * 18) + 20;
+        acorn.style.width = size + 'px';
+        acorn.style.height = 'auto';
+
+        // Vị trí rơi ngang ngẫu nhiên khắp màn hình (0% - 95%)
+        acorn.style.left = (Math.random() * 95) + 'vw';
+
+        // Tốc độ rơi ngẫu nhiên (từ 6 giây đến 12 giây)
+        const duration = (Math.random() * 6 + 6).toFixed(1);
+        acorn.style.animationDuration = duration + 's';
+
+        // Độ trễ xuất hiện để các hạt rơi so le, không rơi cùng lúc
+        const delay = (Math.random() * 8).toFixed(1);
+        acorn.style.animationDelay = delay + 's';
+
+        container.appendChild(acorn);
+      }
+    })();
   </script>
 </body>
 </html>
